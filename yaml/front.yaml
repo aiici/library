@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: front
+  name: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: front
+    spec:
+      containers:
+      - image: FRONT:latest
+        imagePullPolicy: IfNotPresent
+        name: ui
+        ports:
+        - containerPort: 80
+        resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: front
+  name: front
+spec:
+  ports:
+  - name: 80-80
+    port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30886
+  selector:
+    app: front
+  type: NodePort
+status:
+  loadBalancer: {}
