@@ -131,3 +131,4 @@
   将`Jenkinsfile`中的信息修改为自己的即可
 
 ##### 运行效果
+![image](https://github.com/aiici/library/assets/77277056/5e855a30-7cae-4119-a0ff-e746a0bace6e)
